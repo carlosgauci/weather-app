@@ -1,26 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { SunnyIcon } from "../svg/svg";
+import getCurrentDate from "../utils/getCurrentDate";
 
-export default function CurrentWeather() {
+export default function CurrentWeather({ weather }) {
   return (
     <Container>
-      <Date>Saturday 27th March</Date>
+      {/* Todays date */}
+      <Today>{getCurrentDate(weather.current.dt)}</Today>
       <Text>Current Conditions in Malta</Text>
+
+      {/* Weather icon & temperature section */}
       <MainInfo>
         <SVG>
           <SunnyIcon />
         </SVG>
         <Temp>
-          <Degrees>17°C</Degrees>
-          <Text>High: 20°C | Low: 12°C</Text>
-          <Text>Sunny</Text>
+          <Degrees>{Math.round(weather.current.temp)}°C</Degrees>
+          <Text>
+            High: {Math.round(weather.daily[0].temp.max)}°C | Low:{" "}
+            {Math.round(weather.daily[0].temp.min)}°C
+          </Text>
+          <Text>{weather.current.weather[0].main}</Text>
         </Temp>
       </MainInfo>
+
+      {/* Extra info section */}
       <ExtraInfo>
         <FlexGroup>
           <Text>UV</Text>
-          <Text>6</Text>
+          <Text>{Math.round(weather.current.uvi)}</Text>
         </FlexGroup>
         <FlexGroup>
           <Text>Wind Force</Text>
@@ -28,11 +37,11 @@ export default function CurrentWeather() {
         </FlexGroup>
         <FlexGroup>
           <Text>Humidity</Text>
-          <Text>63%</Text>
+          <Text>{Math.round(weather.current.humidity)}%</Text>
         </FlexGroup>
         <FlexGroup>
           <Text>Pressure</Text>
-          <Text>1028hpa</Text>
+          <Text>{Math.round(weather.current.pressure)}hpa</Text>
         </FlexGroup>
       </ExtraInfo>
     </Container>
@@ -49,7 +58,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Date = styled.h1`
+const Today = styled.h1`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 `;
