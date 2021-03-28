@@ -19,6 +19,8 @@ const Container = styled.section`
   background-color: rgba(0, 0, 0, 0.65);
   border-radius: 10px;
   width: 100%;
+  max-width: 1440px;
+  margin: 2rem auto 0;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -28,7 +30,7 @@ const Container = styled.section`
 
 const Title = styled.h2`
   font-size: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const CardContainer = styled.div`
@@ -36,4 +38,5 @@ const CardContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 `;

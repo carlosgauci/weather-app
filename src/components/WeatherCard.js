@@ -8,7 +8,7 @@ import {
 } from "../utils";
 
 export default function WeatherCard({ day }) {
-  const today = getCurrentDate(day.dt, true);
+  const today = getCurrentDate(day.dt, "array");
 
   return (
     <Container>
@@ -30,8 +30,25 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
-  width: 10rem;
+  padding: 1.5rem 0;
+  flex-basis: 100%;
+  position: relative;
+
+  @media (min-width: 480px) {
+    flex-basis: 50%;
+  }
+
+  @media (min-width: 768px) {
+    flex-basis: 33.3%;
+  }
+
+  @media (min-width: 1024px) {
+    flex-basis: 25%;
+  }
+
+  @media (min-width: 1280px) {
+    flex-basis: 14.2%;
+  }
 `;
 
 const Day = styled.h3`

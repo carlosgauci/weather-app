@@ -62,6 +62,8 @@ const Container = styled.section`
   background-color: rgba(0, 0, 0, 0.65);
   border-radius: 10px;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
