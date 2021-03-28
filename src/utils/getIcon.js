@@ -8,10 +8,12 @@ import {
   StormIcon,
 } from "../svg/svg";
 
-export default function getIcon(weather) {
+export default function getIcon(weather, forecast) {
   // Determine daytime or nighttime
   const hours = new Date().getHours();
-  const isDayTime = hours > 6 && hours < 20;
+
+  // Always show daytime icon on 7 day forecast
+  const isDayTime = forecast ? true : hours > 6 && hours < 20;
 
   //   Choose relevant icon
   //   Cloudy

@@ -62,7 +62,7 @@ export default function CurrentWeather({ weather }) {
 }
 
 const Container = styled.section`
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   width: 100%;
   max-width: 1024px;
@@ -76,6 +76,10 @@ const Container = styled.section`
 const Today = styled.h1`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const Text = styled.p`

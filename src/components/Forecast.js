@@ -16,7 +16,7 @@ export default function Forecast({ weather }) {
 }
 
 const Container = styled.section`
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   width: 100%;
   max-width: 1440px;
@@ -31,6 +31,10 @@ const Container = styled.section`
 const Title = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 1rem;
+
+  @media (min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const CardContainer = styled.div`

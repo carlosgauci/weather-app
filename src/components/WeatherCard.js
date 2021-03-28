@@ -8,16 +8,21 @@ import {
 } from "../utils";
 
 export default function WeatherCard({ day }) {
+  // Get date from unix time
   const today = getCurrentDate(day.dt, "array");
 
   return (
     <Container>
+      {/* Day & date */}
       <Day>{today[0]}</Day>
       <Month>{today[1]}</Month>
-      <SVG>{getIcon(day.weather[0].main)}</SVG>
+      {/* Get weather icon, pass in "forecast" to always show day icons */}
+      <SVG>{getIcon(day.weather[0].main, "forecast")}</SVG>
+      {/* Weather description */}
       <Text>
         {getWeatherConditions(day.weather[0].main, day.weather[0].description)}
       </Text>
+      {/* Info */}
       <Text>High {Math.round(day.temp.max)}°C</Text>
       <Text>Low {Math.round(day.temp.min)}°C</Text>
       <Text>UV {Math.round(day.uvi)}</Text>
