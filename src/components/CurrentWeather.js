@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import getCurrentDate from "../utils/getCurrentDate";
-import getWeatherConditions from "../utils/getWeatherConditions";
-import getWind from "../utils/getWind";
-import getIcon from "../utils/getIcon";
+import {
+  getCurrentDate,
+  getWeatherConditions,
+  getWind,
+  getIcon,
+} from "../utils";
 
 export default function CurrentWeather({ weather }) {
   return (

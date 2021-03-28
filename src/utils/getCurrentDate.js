@@ -1,4 +1,4 @@
-export default function getCurrentDate(unix) {
+export default function getCurrentDate(unix, array) {
   const months = [
     "January",
     "February",
@@ -29,7 +29,16 @@ export default function getCurrentDate(unix) {
   const date = currentDate.getDate();
   const month = months[currentDate.getMonth()];
   const dateSuffix =
-    date === 1 ? "st" : date === 2 ? "nd" : date === 3 ? "rd" : "th";
+    date === 1 || date === 21 || date === 31
+      ? "st"
+      : date === 2 || date === 22
+      ? "nd"
+      : date === 3 || date === 23
+      ? "rd"
+      : "th";
 
+  if (array) {
+    return [`${day}`, `${date}${dateSuffix} ${month}`];
+  }
   return `${day} ${date}${dateSuffix} ${month}`;
 }

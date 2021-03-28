@@ -1,0 +1,39 @@
+import React from "react";
+import styled from "styled-components";
+import WeatherCard from "./WeatherCard";
+
+export default function Forecast({ weather }) {
+  return (
+    <Container>
+      <Title>7 Day Forecast</Title>
+      <CardContainer>
+        {weather.slice(1).map((day) => {
+          return <WeatherCard key={day.dt} day={day} />;
+        })}
+      </CardContainer>
+    </Container>
+  );
+}
+
+const Container = styled.section`
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+`;
+
+const Title = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+`;
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;

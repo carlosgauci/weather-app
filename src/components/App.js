@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { GlobalStyle } from "../styles/globalStyles";
 import styled from "styled-components";
-import useWindowSize from "../utils/useWindowSize";
+import { useWindowSize } from "../utils";
 import background from "../images/bg.jpg";
 import backgroundLarge from "../images/bg-lg.jpg";
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
 export default function App() {
   // Use different bg image on mobile/desktop
@@ -31,6 +32,7 @@ export default function App() {
       <GlobalStyle />
       <Container style={{ backgroundImage: `url(${bgImage})` }}>
         {weather && <CurrentWeather weather={weather} />}
+        {weather && <Forecast weather={weather.daily} />}
       </Container>
     </>
   );
