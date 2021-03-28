@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { SunnyIcon } from "../svg/svg";
 import getCurrentDate from "../utils/getCurrentDate";
+import getWeatherConditions from "../utils/getWeatherConditions";
+import getWind from "../utils/getWind";
+import getIcon from "../utils/getIcon";
 
 export default function CurrentWeather({ weather }) {
   return (
@@ -12,16 +14,20 @@ export default function CurrentWeather({ weather }) {
 
       {/* Weather icon & temperature section */}
       <MainInfo>
-        <SVG>
-          <SunnyIcon />
-        </SVG>
+        <SVG>{getIcon(weather.current.weather[0].main)}</SVG>
         <Temp>
           <Degrees>{Math.round(weather.current.temp)}°C</Degrees>
           <Text>
             High: {Math.round(weather.daily[0].temp.max)}°C | Low:{" "}
             {Math.round(weather.daily[0].temp.min)}°C
           </Text>
-          <Text>{weather.current.weather[0].main}</Text>
+          {/* Weather conditions eg. Clear, Cloudy etc */}
+          <Text>
+            {getWeatherConditions(
+              weather.current.weather[0].main,
+              weather.current.weather[0].description
+            )}
+          </Text>
         </Temp>
       </MainInfo>
 
@@ -32,8 +38,10 @@ export default function CurrentWeather({ weather }) {
           <Text>{Math.round(weather.current.uvi)}</Text>
         </FlexGroup>
         <FlexGroup>
-          <Text>Wind Force</Text>
-          <Text>SW 4</Text>
+          <Text>Wind Speed</Text>
+          <Text>
+            {getWind(weather.current.wind_deg, weather.current.wind_speed)} kts
+          </Text>
         </FlexGroup>
         <FlexGroup>
           <Text>Humidity</Text>
