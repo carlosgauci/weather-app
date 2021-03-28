@@ -45,4 +45,7 @@ const Container = styled.main`
   background-position: center;
   background-attachment: fixed;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;

@@ -5,9 +5,19 @@ export default function getWeatherConditions(main, desc) {
     desc === "broken clouds"
   ) {
     return "Slightly Cloudy";
-  } else if (main === "Clouds") {
+  }
+
+  if (main === "Clouds") {
     return "Cloudy";
-  } else if (main === "Clear") {
+  }
+
+  if (main === "Drizzle" || desc === "light rain") {
+    return "Light Rain";
+  }
+
+  if (main === "Clear") {
     return "Clear Skies";
-  } else return main;
+  }
+
+  return main;
 }
