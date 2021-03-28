@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
 
-  h1,h2,h3,p,li,button,a,input,label {
+  h1,h2,h3,p {
     font-family: "Mulish";
     color: #fff;
   }
@@ -23,11 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     margin:0;
   }
 
-  p,li,button,a,input,label{
+  p{
     font-weight: 400;
   }
 
-  a {
-    text-decoration: none;
-  }
 `;
