@@ -46,5 +46,10 @@ export default function getIcon(weather, forecast) {
     return <ClearNightIcon />;
   }
 
+  // Default night time
+  if (isDayTime === false) {
+    return <ClearNightIcon />;
+  }
+  // Default day time
   return <ClearIcon />;
 }
